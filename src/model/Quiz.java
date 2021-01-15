@@ -12,6 +12,10 @@ public class Quiz implements Serializable {
 	private String answer;
 
 	public Quiz() {};
+	public Quiz(int id) {
+		super();
+		this.id = id;
+	}
 	public Quiz(int id, String question, String choice1, String choice2, String choice3, String choice4,
 			String answer) {
 		this.id = id;

@@ -9,19 +9,22 @@ import java.sql.SQLException;
 import model.Quiz;
 
 public class QuizDAO {
-	private final String JDBC_URL = "jdbc:h2:tcp://localhost/~/quizDB";
+	private final String dataBaseName = "quizDB";
+
+	private final String JDBC_URL = "jdbc:h2:tcp://localhost/~/"+ dataBaseName;
+//	private final String JDBC_URL = "jdbc:mysql://localhost"+ "/" + databasename + "?serverTimeZone=JST"
 	private final String DB_USER = "sa";
 	private final String DB_PASS = "200907";
 
-	@SuppressWarnings("null")
-	public Quiz getData() {
+
+	public Quiz getData(int quizNum) {
 		Quiz quiz = null;
 
 		try(Connection conn = DriverManager.getConnection(JDBC_URL,DB_USER,DB_PASS)){
 
 			String sql = "SELECT * FROM QUIZJS8 WHERE ID=?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
-			pStmt.setInt(1, quiz.getId());
+			pStmt.setInt(1, quizNum);
 
 			//SELECT文実行、取得
 			ResultSet rs = pStmt.executeQuery();

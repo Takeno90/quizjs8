@@ -3,9 +3,9 @@ package model;
 import dao.QuizDAO;
 
 public class QuizLogic {
-	public boolean execute() {
+	public boolean execute(int quizNum) {
 		QuizDAO quizDAO = new QuizDAO();
-		quizDAO.getData();
+		quizDAO.getData(quizNum);
 
 		return true;
 	}
