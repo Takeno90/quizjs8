@@ -10,37 +10,30 @@ public class QuizDAOTest {
 	}
 	public static void testFindQuiz1() {
 		int num = 1;
-		Quiz quiz = new Quiz(num);
+//		Quiz quiz = new Quiz(num);
 		QuizDAO dao = new QuizDAO();
 		Quiz result = dao.getData(num);
 
 		if(result != null &&
 			result.getId() == 1 &&
-			result.getQuestion().equals(anObject)&&
-			result.getChoice1().equals(anObject) &&
-			result.getChoice2().equals(anObject) &&
-			result.getChoice3().equals() &&
-			result.getChoice4().equals() &&
-			result.getAnswer().equals("") ) {
+			result.getQuestion().equals("StringBuilderの文字列連結はどれ？")&&
+			result.getChoice1().equals("add") &&
+			result.getChoice2().equals("concat") &&
+			result.getChoice3().equals("insert") &&
+			result.getChoice4().equals("append") &&
+			result.getAnswer().equals("append") ) {
 			System.out.println("testFindQuiz1():成功しました");
 		}else {
 			System.out.println("testFindQuiz1():失敗しました");
 		}
 	}
 	public static void testFindQuiz2() {
-		int num = -1;
-		Quiz quiz = new Quiz(num);
+		int num = 0;
+//		Quiz quiz = new Quiz(num);
 		QuizDAO dao = new QuizDAO();
 		Quiz result = dao.getData(num);
 
-		if(result != null &&
-			result.getId() == 1 &&
-			result.getQuestion().equals(anObject)&&
-			result.getChoice1().equals(anObject) &&
-			result.getChoice2().equals(anObject) &&
-			result.getChoice3().equals() &&
-			result.getChoice4().equals() &&
-			result.getAnswer().equals("") ) {
+		if(result == null) {
 			System.out.println("testFindQuiz2():成功しました");
 		}else {
 			System.out.println("testFindQuiz2():失敗しました");

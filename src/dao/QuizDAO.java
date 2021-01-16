@@ -11,10 +11,10 @@ import model.Quiz;
 public class QuizDAO {
 	private final String dataBaseName = "quizDB";
 
-	private final String JDBC_URL = "jdbc:h2:tcp://localhost/~/"+ dataBaseName;
-//	private final String JDBC_URL = "jdbc:mysql://localhost"+ "/" + databasename + "?serverTimeZone=JST"
-	private final String DB_USER = "sa";
-	private final String DB_PASS = "200907";
+//	private final String JDBC_URL = "jdbc:h2:tcp://localhost/~/"+ dataBaseName;
+	private final String JDBC_URL = "jdbc:mysql://localhost/" + dataBaseName + "?serverTimeZone=JST";
+	private final String DB_USER = "root";
+	private final String DB_PASS = "";
 
 
 	public Quiz getData(int quizNum) {
@@ -33,10 +33,10 @@ public class QuizDAO {
 			if(rs.next()) {
 				int id = rs.getInt("ID");
 				String question = rs.getString("QUESTION");
-				String choice1 = rs.getString("CHICE1");
-				String choice2 = rs.getString("CHICE2");
-				String choice3 = rs.getString("CHICE3");
-				String choice4 = rs.getString("CHICE4");
+				String choice1 = rs.getString("CHOICE1");
+				String choice2 = rs.getString("CHOICE2");
+				String choice3 = rs.getString("CHOICE3");
+				String choice4 = rs.getString("CHOICE4");
 				String answer = rs.getString("ANSWER");
 
 				quiz = new Quiz(id,question,choice1,choice2,choice3,choice4,answer);
