@@ -16,12 +16,12 @@ public class QuizDAOTest {
 
 		if(result != null &&
 			result.getId() == 1 &&
-			result.getQuestion().equals("StringBuilderの文字列連結はどれ？")&&
+			result.getQuestion().equals("StringBuilderの文字列連結はどれ")&&
 			result.getChoice1().equals("add") &&
 			result.getChoice2().equals("concat") &&
 			result.getChoice3().equals("insert") &&
 			result.getChoice4().equals("append") &&
-			result.getAnswer().equals("append") ) {
+			result.getAnswer() == 4 ) {
 			System.out.println("testFindQuiz1():成功しました");
 		}else {
 			System.out.println("testFindQuiz1():失敗しました");

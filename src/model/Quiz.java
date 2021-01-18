@@ -9,15 +9,11 @@ public class Quiz implements Serializable {
 	private String choice2;
 	private String choice3;
 	private String choice4;
-	private String answer;
+	private int answer;
 
-	public Quiz() {};
-	public Quiz(int id) {
-		super();
-		this.id = id;
-	}
-	public Quiz(int id, String question, String choice1, String choice2, String choice3, String choice4,
-			String answer) {
+	public Quiz() {}
+
+	public Quiz(int id, String question, String choice1, String choice2, String choice3, String choice4, int answer) {
 		this.id = id;
 		this.question = question;
 		this.choice1 = choice1;
@@ -26,27 +22,33 @@ public class Quiz implements Serializable {
 		this.choice4 = choice4;
 		this.answer = answer;
 	}
+
 	public int getId() {
 		return id;
 	}
+
 	public String getQuestion() {
 		return question;
 	}
+
 	public String getChoice1() {
 		return choice1;
 	}
+
 	public String getChoice2() {
 		return choice2;
 	}
+
 	public String getChoice3() {
 		return choice3;
 	}
+
 	public String getChoice4() {
 		return choice4;
 	}
-	public String getAnswer() {
-		return answer;
-	}
 
+	public int getAnswer() {
+		return answer;
+	};
 
 }

@@ -9,7 +9,7 @@ import java.sql.SQLException;
 import model.Quiz;
 
 public class QuizDAO {
-	private final String dataBaseName = "quizDB";
+	private final String dataBaseName = "quizDB2";
 
 //	private final String JDBC_URL = "jdbc:h2:tcp://localhost/~/"+ dataBaseName;
 	private final String JDBC_URL = "jdbc:mysql://localhost/" + dataBaseName + "?serverTimeZone=JST";
@@ -37,7 +37,7 @@ public class QuizDAO {
 				String choice2 = rs.getString("CHOICE2");
 				String choice3 = rs.getString("CHOICE3");
 				String choice4 = rs.getString("CHOICE4");
-				String answer = rs.getString("ANSWER");
+				int answer = rs.getInt("ANSWER");
 
 				quiz = new Quiz(id,question,choice1,choice2,choice3,choice4,answer);
 			}
