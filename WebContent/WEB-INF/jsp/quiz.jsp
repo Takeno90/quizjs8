@@ -11,14 +11,14 @@
 <title>JavaSilver8 4択問題</title>
 </head>
 <body>
-	<div><%= quiz.getQuestion() %></div>
+	<div><%=quiz.getQuestion() %></div>
 	<div>
 		<form action="/quizjs8/QuizServlet" method="post">
-			<p><input type="radio" name="choice" value="1"><%= quiz.getChoice1() %></p>
-			<p><input type="radio" name="choice" value="2"><%= quiz.getChoice2() %></p>
-			<p><input type="radio" name="choice" value="3"><%= quiz.getChoice3() %></p>
-			<p><input type="radio" name="choice" value="4"><%= quiz.getChoice4() %></p>
-			<p><input type="submit" value="解答"></p>
+			<p><label><input type="radio" name="choice" value="1"><%= quiz.getChoice1() %></label></p>
+			<p><label><input type="radio" name="choice" value="2"><%= quiz.getChoice2() %></label></p>
+			<p><label><input type="radio" name="choice" value="3"><%= quiz.getChoice3() %></label></p>
+			<p><label><input type="radio" name="choice" value="4"><%= quiz.getChoice4() %></label></p>
+			<p><label><input type="submit" value="解答"></p>
 		</form>
 	</div>
 </body>

@@ -47,16 +47,22 @@ public class QuizServlet extends HttpServlet {
 			quizNum++;
 		}
 
-
 		//問題をDBから取得
+
 		QuizLogic quizLogic = new QuizLogic();
 		Quiz quiz = quizLogic.execute(quizNum);
+
 		if(quiz != null) {
 			//問題をセッションスコープに
 			session.setAttribute("quiz", quiz);
+		}else {
+			//終了ページへフォワード
+			RequestDispatcher dispatcherEnd = request.getRequestDispatcher("/WEB-INF/jsp/end.jsp");
+			dispatcherEnd.forward(request, response);
 		}
 		//問題番号をセッションスコープに
 		session.setAttribute("quizNum", quizNum);
+
 		//フォワード
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/quiz.jsp");
 		dispatcher.forward(request, response);
