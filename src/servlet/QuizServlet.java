@@ -40,7 +40,7 @@ public class QuizServlet extends HttpServlet {
 		if (action == null) {
 			//問題の初期値設定
 			quizNum = 1;
-		} else if(action.equals("done")){
+		} else if (action.equals("done")) {
 			//問題番号をセッションから取り出す
 			quizNum = (int) session.getAttribute("quizNum");
 			//加算
@@ -52,7 +52,7 @@ public class QuizServlet extends HttpServlet {
 		QuizLogic quizLogic = new QuizLogic();
 		Quiz quiz = quizLogic.execute(quizNum);
 
-		if(quiz != null) {
+		if (quiz != null) {
 			//問題をセッションスコープに
 			session.setAttribute("quiz", quiz);
 			//問題番号をセッションスコープに
@@ -61,8 +61,8 @@ public class QuizServlet extends HttpServlet {
 			//フォワード
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/quiz.jsp");
 			dispatcher.forward(request, response);
-		}else {
-//			session.invalidate();
+		} else {
+			//			session.invalidate();
 			//終了ページへフォワード
 			RequestDispatcher dispatcherEnd = request.getRequestDispatcher("/WEB-INF/jsp/end.jsp");
 			dispatcherEnd.forward(request, response);
@@ -79,17 +79,28 @@ public class QuizServlet extends HttpServlet {
 		//パラメータ取得
 		request.setCharacterEncoding("UTF-8");
 		String choice = request.getParameter("choice");
-		//セッションスコープから問題の解答を取得
+		String forwardPass = null;
 		HttpSession session = request.getSession();
+		//セッションスコープから問題の解答を取得
 		Quiz quiz = (Quiz) session.getAttribute("quiz");
+
 		String quizString = String.valueOf(quiz.getAnswer());
 
-		String forwardPass;
+		//最初の問題かそれ以外かでscoreの初期値設定
 		int score = 0;
+		int quizNum = (int) session.getAttribute("quizNum");
+		if (quizNum == 1) {
+			score = 0;
+		} else {
+			score = (int) session.getAttribute("score");
+		}
+
 		//正誤判定
 		if (choice.equals(quizString)) {
+
 			//正解をカウント
 			score++;
+			System.out.println(score);
 			session.setAttribute("score", score);
 			forwardPass = "/WEB-INF/jsp/right.jsp";
 		} else {
