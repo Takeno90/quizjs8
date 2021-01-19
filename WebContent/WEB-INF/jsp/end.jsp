@@ -3,7 +3,9 @@
 <%
 	int quizNum = (int)session.getAttribute("quizNum");
 	int score = (int) session.getAttribute("score");
+	session.invalidate();
 	//session.removeAttribute("score");
+
 %>
 <!DOCTYPE html>
 <html>

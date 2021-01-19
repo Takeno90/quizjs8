@@ -36,10 +36,12 @@ public class QuizServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		String action = request.getParameter("action");
 		HttpSession session = request.getSession();
-		int quizNum = 0;
+		//問題の初期値設定
+		int quizNum = 1;
 		if (action == null) {
-			//問題の初期値設定
-			quizNum = 1;
+			//
+			int score = 0;
+			session.setAttribute("score", score);
 		} else if (action.equals("done")) {
 			//問題番号をセッションから取り出す
 			quizNum = (int) session.getAttribute("quizNum");
@@ -89,15 +91,12 @@ public class QuizServlet extends HttpServlet {
 		//最初の問題かそれ以外かでscoreの初期値設定
 		int score = 0;
 		int quizNum = (int) session.getAttribute("quizNum");
-		if (quizNum == 1) {
-			score = 0;
-		} else {
+		if (quizNum != 1) {
 			score = (int) session.getAttribute("score");
 		}
 
 		//正誤判定
 		if (choice.equals(quizString)) {
-
 			//正解をカウント
 			score++;
 			System.out.println(score);
