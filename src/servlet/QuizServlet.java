@@ -55,17 +55,19 @@ public class QuizServlet extends HttpServlet {
 		if(quiz != null) {
 			//問題をセッションスコープに
 			session.setAttribute("quiz", quiz);
+			//問題番号をセッションスコープに
+			session.setAttribute("quizNum", quizNum);
+
+			//フォワード
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/quiz.jsp");
+			dispatcher.forward(request, response);
 		}else {
+//			session.invalidate();
 			//終了ページへフォワード
 			RequestDispatcher dispatcherEnd = request.getRequestDispatcher("/WEB-INF/jsp/end.jsp");
 			dispatcherEnd.forward(request, response);
 		}
-		//問題番号をセッションスコープに
-		session.setAttribute("quizNum", quizNum);
 
-		//フォワード
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/quiz.jsp");
-		dispatcher.forward(request, response);
 	}
 
 	/**
@@ -83,13 +85,17 @@ public class QuizServlet extends HttpServlet {
 		String quizString = String.valueOf(quiz.getAnswer());
 
 		String forwardPass;
-
+		int score = 0;
 		//正誤判定
 		if (choice.equals(quizString)) {
+			//正解をカウント
+			score++;
+			session.setAttribute("score", score);
 			forwardPass = "/WEB-INF/jsp/right.jsp";
 		} else {
 			forwardPass = "/WEB-INF/jsp/wrong.jsp";
 		}
+
 		RequestDispatcher dispatcher = request.getRequestDispatcher(forwardPass);
 		dispatcher.forward(request, response);
 	}
