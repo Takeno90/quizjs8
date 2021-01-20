@@ -7,7 +7,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>JavaSilver8 4択問題</title>
+<link rel="stylesheet" href="/quizjs8/css/style.css">
 </head>
 <body>
 <h1>正解</h1>

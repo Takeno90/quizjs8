@@ -11,14 +11,14 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class NextServlet
  */
-@WebServlet("/NextServlet")
-public class NextServlet extends HttpServlet {
+@WebServlet("/ResisterLogin")
+public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public NextServlet() {
+    public Login() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -27,18 +27,6 @@ public class NextServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		request.setCharacterEncoding("UTF-8");
-		String choice = request.getParameter("choice");
-//		HttpSession session = request.getSession();
-//		int quizNum = (int) session.getAttribute("quizNum");
-//		quizNum++;
-
-//			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/quiz.jsp");
-//			dispatcher.forward(request, response);
-//
-
-//		}
 
 	}
 

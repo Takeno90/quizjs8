@@ -9,12 +9,13 @@
 <head>
 <meta charset="UTF-8">
 <title>JavaSilver8 4択問題</title>
+<link rel="stylesheet" href="/quizjs8/css/style.css">
 </head>
 <body>
 	<div><%=quiz.getQuestion() %></div>
 	<div>
 		<form action="/quizjs8/QuizServlet" method="post" name="form" onSubmit="return check()">
-			<p><label><input type="radio" name="choice" value="1"><%= quiz.getChoice1() %></label></p>
+			<p><label><input type="radio" name="choice" value="1" checked><%= quiz.getChoice1() %></label></p>
 			<p><label><input type="radio" name="choice" value="2"><%= quiz.getChoice2() %></label></p>
 			<p><label><input type="radio" name="choice" value="3"><%= quiz.getChoice3() %></label></p>
 			<p><label><input type="radio" name="choice" value="4"><%= quiz.getChoice4() %></label></p>

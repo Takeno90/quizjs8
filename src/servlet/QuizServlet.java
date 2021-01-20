@@ -99,7 +99,6 @@ public class QuizServlet extends HttpServlet {
 		if (choice.equals(quizString)) {
 			//正解をカウント
 			score++;
-			System.out.println(score);
 			session.setAttribute("score", score);
 			forwardPass = "/WEB-INF/jsp/right.jsp";
 		} else {
