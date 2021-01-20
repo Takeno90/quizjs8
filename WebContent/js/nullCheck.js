@@ -1,7 +1,7 @@
 /**
  * 選択されていないときにアラート
  */
-<!--
+
 function check() {
 	let flag = 0;
 	//check
@@ -20,4 +20,3 @@ function check() {
 	}
 
 }
-//-->

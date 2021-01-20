@@ -3,15 +3,12 @@
 <%@ page import ="model.Quiz" %>
 <%
 	Quiz quiz = (Quiz)session.getAttribute("quiz");
-	//String errorMsg = (String)request.getAttribute("errorMsg");
-
 %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>JavaSilver8 4択問題</title>
-<script src="/quizjs8/js/nullCheck.js" type="text/javascript"></script>
 </head>
 <body>
 	<div><%=quiz.getQuestion() %></div>
@@ -24,11 +21,6 @@
 			<p><input type="submit" value="解答"></p>
 		</form>
 	</div>
-	<%--
-	<% if(errorMsg != null){ %>
-	<p><%= errorMsg %></p>
-	<%} %>
-	--%>
-
+<script src="/quizjs8/js/nullCheck.js" type="text/javascript"></script>
 </body>
 </html>

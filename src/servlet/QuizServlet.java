@@ -39,7 +39,7 @@ public class QuizServlet extends HttpServlet {
 		//問題の初期値設定
 		int quizNum = 1;
 		if (action == null) {
-			//
+			//正解カウント初期値設定
 			int score = 0;
 			session.setAttribute("score", score);
 		} else if (action.equals("done")) {
